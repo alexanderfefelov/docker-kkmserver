@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-ENV VERSION 2.1.23.10_21.11.2018
+ENV VERSION 2.1.24.15_09.12.2018
 
 ADD https://github.com/alexanderfefelov/kkmserver-api/raw/master/extra/kkmserver/dist/deb/KkmServer_$VERSION.deb /
 
