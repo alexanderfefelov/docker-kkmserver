@@ -55,11 +55,32 @@ docker run --name kkmserver \
     docker start kkmserver
     docker restart kkmserver
 
+## Где мои данные?
+
+Файлы данных KkmServer хранятся в Docker-томе, путь к которому можно узнать с помощью команды
+
+    docker volume inspect --format '{{.Mountpoint}}' kkmserver
+
+## Куда печатает чеки эмулятор ККТ?
+
+Эмулятор ККТ в контейнере печатает чеки в stdout (т. е. в консоль), а всё, что контейнер выводит в stdout,
+попадает в журнал контейнера (см. ниже).
+
+## Как посмотреть/очистить журнал контейнера?
+
+Для просмотра журнала воспользуйтесь командой
+
+    docker logs --follow kkmserver
+
+Очистить журнал контейнера можно так
+
+    echo > $(docker inspect --format='{{.LogPath}}' kkmserver)
+
 ## Как это удалить?
 
 Удалите контейнер:
 
-    docker rm -f kkmserver
+    docker rm --force kkmserver
 
 Удалите образ:
 
