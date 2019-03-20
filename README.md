@@ -84,7 +84,7 @@ docker run --name kkmserver \
 
 Удалите образ:
 
-    docker rmi alexanderfefelov/kkmserver
+    docker image rm alexanderfefelov/kkmserver
 
 :fire: Удалите данные (настройки и логи):
 
