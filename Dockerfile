@@ -6,7 +6,7 @@ ADD https://github.com/alexanderfefelov/kkmserver-api/raw/master/extra/kkmserver
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -qq update \
-  && apt-get install -qq --yes --no-install-recommends liblttng-ust0 libcurl3 libgdiplus libc6-dev libssl1.0.2 \
+  && apt-get install -qq --yes --no-install-recommends liblttng-ust0 libcurl3 libgdiplus libc6-dev libssl1.1 openssl ca-certificates \
   && dpkg --install /KkmServer_$KKMSERVER_VERSION.deb \
   && rm --force /KkmServer_$KKMSERVER_VERSION.deb \
   && apt-get -qq clean \
