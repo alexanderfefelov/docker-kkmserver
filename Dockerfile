@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-ENV KKMSERVER_VERSION 2.1.29.12_01.08.2019
+ENV KKMSERVER_VERSION 2.1.33.10_20.01.2020
 
 ADD https://github.com/alexanderfefelov/kkmserver-api/raw/master/extra/kkmserver/dist/deb/KkmServer_$KKMSERVER_VERSION.deb /
 
