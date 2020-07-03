@@ -1,16 +1,24 @@
 FROM debian:stretch-slim
 
 ENV KKMSERVER_VERSION 2.1.36.19_01.05.2020
+ENV DEB=KkmServer_$KKMSERVER_VERSION.deb
 
-ADD https://github.com/alexanderfefelov/kkmserver-api/raw/master/extra/kkmserver/dist/deb/KkmServer_$KKMSERVER_VERSION.deb /
+ADD https://github.com/alexanderfefelov/kkmserver-api/raw/master/extra/kkmserver/dist/deb/$DEB /
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -qq update \
-  && apt-get install -qq --yes --no-install-recommends liblttng-ust0 libcurl3 libgdiplus libc6-dev libssl1.1 openssl ca-certificates \
-  && dpkg --install /KkmServer_$KKMSERVER_VERSION.deb \
-  && rm --force /KkmServer_$KKMSERVER_VERSION.deb \
+  && apt-get -qq install --no-install-recommends \
+    ca-certificates \
+    libc6-dev \
+    libcurl3 \
+    libgdiplus \
+    liblttng-ust0 \
+    libssl1.1 \
+    openssl \
+  && dpkg --install /$DEB \
   && apt-get -qq clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  && rm --recusive --force /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+  && rm --force /$DEB
 
 ADD container/ /
 
