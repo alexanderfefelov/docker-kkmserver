@@ -17,7 +17,7 @@ RUN apt-get -qq update \
     openssl \
   && dpkg --install /$DEB \
   && apt-get -qq clean \
-  && rm --recusive --force /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+  && rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   && rm --force /$DEB
 
 ADD container/ /
