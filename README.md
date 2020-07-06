@@ -9,7 +9,8 @@ docker-kkmserver -- это сервер печати чеков/этикеток
 Для запуска контейнера выполните команду:
 
 ```bash
-docker run --name kkmserver \
+docker run \
+  --name kkmserver \
   --detach \
   --tty \
   --volume /etc/localtime:/etc/localtime:ro \
@@ -22,7 +23,8 @@ docker run --name kkmserver \
 в контейнер соответствующее устройство, например, так:
 
 ```bash
-docker run --name kkmserver \
+docker run \
+  --name kkmserver \
   --detach \
   --tty \
   --device /dev/ttyACM0:/dev/ttyACM0 \
