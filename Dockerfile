@@ -15,6 +15,7 @@ RUN apt-get -qq update \
     libgdiplus \
     liblttng-ust0 \
     libssl1.1 \
+    netcat \
     openssl \
   && dpkg --install /$DEB \
   && apt-get -qq clean \
