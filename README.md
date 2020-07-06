@@ -16,6 +16,11 @@ docker run \
   --volume /etc/localtime:/etc/localtime:ro \
   --volume kkmserver:/opt/kkmserver/Settings \
   --publish 5893:5893 \
+  --health-cmd /healthcheck.sh \
+  --health-start-period 3s \
+  --health-interval 1m \
+  --health-timeout 1s \
+  --health-retries 3 \
   --log-opt max-size=10m --log-opt max-file=5 \
   alexanderfefelov/kkmserver
 ```
@@ -26,13 +31,9 @@ docker run \
 ```bash
 docker run \
   --name kkmserver \
-  --detach \
-  --tty \
+  ...
   --device /dev/ttyACM0:/dev/ttyACM0 \
-  --volume /etc/localtime:/etc/localtime:ro \
-  --volume kkmserver:/opt/kkmserver/Settings \
-  --publish 5893:5893 \
-  --log-opt max-size=10m --log-opt max-file=5 \
+  ...
   alexanderfefelov/kkmserver
 ```
 Узнать имя устройства можно с помощью команды `dmesg`:
