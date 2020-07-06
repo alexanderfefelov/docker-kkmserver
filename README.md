@@ -16,6 +16,7 @@ docker run \
   --volume /etc/localtime:/etc/localtime:ro \
   --volume kkmserver:/opt/kkmserver/Settings \
   --publish 5893:5893 \
+  --log-opt max-size=10m --log-opt max-file=5 \
   alexanderfefelov/kkmserver
 ```
 
@@ -31,6 +32,7 @@ docker run \
   --volume /etc/localtime:/etc/localtime:ro \
   --volume kkmserver:/opt/kkmserver/Settings \
   --publish 5893:5893 \
+  --log-opt max-size=10m --log-opt max-file=5 \
   alexanderfefelov/kkmserver
 ```
 Узнать имя устройства можно с помощью команды `dmesg`:
