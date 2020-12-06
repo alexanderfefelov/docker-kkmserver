@@ -16,11 +16,7 @@ docker run \
   --volume /etc/localtime:/etc/localtime:ro \
   --volume kkmserver:/opt/kkmserver/Settings \
   --publish 5893:5893 \
-  --health-cmd /healthcheck.sh \
-  --health-start-period 3s \
-  --health-interval 1m \
-  --health-timeout 1s \
-  --health-retries 3 \
+  --health-cmd /healthcheck.sh --health-start-period 3s --health-interval 1m --health-timeout 1s --health-retries 3 \
   --log-opt max-size=10m --log-opt max-file=5 \
   alexanderfefelov/kkmserver
 ```
@@ -56,15 +52,19 @@ docker run \
 
 Для управления контейнером используйте команды:
 
-    docker stop kkmserver
-    docker start kkmserver
-    docker restart kkmserver
+```bash
+docker stop kkmserver
+docker start kkmserver
+docker restart kkmserver
+```
 
 ## Где мои данные?
 
 Файлы данных KkmServer хранятся в Docker-томе, путь к которому можно узнать с помощью команды
 
-    docker volume inspect --format '{{.Mountpoint}}' kkmserver
+```bash
+docker volume inspect --format '{{.Mountpoint}}' kkmserver
+```
 
 ## Куда печатает чеки эмулятор ККТ?
 
@@ -75,22 +75,32 @@ docker run \
 
 Для просмотра журнала воспользуйтесь командой
 
-    docker logs --follow kkmserver
+```bash
+docker logs --follow kkmserver
+```
 
 Очистить журнал контейнера можно так
 
-    echo > $(docker inspect --format='{{.LogPath}}' kkmserver)
+```bash
+echo > $(docker inspect --format='{{.LogPath}}' kkmserver)
+```
 
 ## Как это удалить?
 
 Удалите контейнер:
 
-    docker rm --force kkmserver
+```bash
+docker rm --force kkmserver
+```
 
 Удалите образ:
 
-    docker image rm alexanderfefelov/kkmserver
+```bash
+docker image rm alexanderfefelov/kkmserver
+```
 
 :fire: Удалите данные (настройки и логи):
 
-    docker volume rm kkmserver
+```bash
+docker volume rm kkmserver
+```
