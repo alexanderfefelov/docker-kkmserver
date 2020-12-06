@@ -4,7 +4,7 @@ ARG KKMSERVER_VERSION=2.1.37.12_02.07.2020
 ARG KKMSERVER_STUFF=KkmServer_$KKMSERVER_VERSION.deb
 
 ADD container/ /
-ADD https://github.com/alexanderfefelov/kkmserver-api/raw/master/extra/kkmserver/dist/deb/$KKMSERVER_STUFF /
+ADD https://github.com/alexanderfefelov/kkmserver-dist/raw/main/deb/$KKMSERVER_STUFF /
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -qq update \
