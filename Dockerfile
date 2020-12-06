@@ -1,10 +1,10 @@
 FROM debian:stretch-slim
 
-ARG KKMSERVER_VERSION 2.1.37.12_02.07.2020
-ARG DEB=KkmServer_$KKMSERVER_VERSION.deb
+ARG KKMSERVER_VERSION=2.1.37.12_02.07.2020
+ARG KKMSERVER_STUFF=KkmServer_$KKMSERVER_VERSION.deb
 
 ADD container/ /
-ADD https://github.com/alexanderfefelov/kkmserver-api/raw/master/extra/kkmserver/dist/deb/$DEB /
+ADD https://github.com/alexanderfefelov/kkmserver-api/raw/master/extra/kkmserver/dist/deb/$KKMSERVER_STUFF /
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -qq update \
@@ -17,10 +17,10 @@ RUN apt-get -qq update \
        libssl1.1 \
        netcat `# For health checks` \
        openssl \
-  && dpkg --install $DEB \
+  && dpkg --install $KKMSERVER_STUFF \
   && apt-get -qq clean \
   && rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-  && rm --force $DEB
+  && rm --force $KKMSERVER_STUFF
 
 ENV LANG ru_RU.utf8
 
