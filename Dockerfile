@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-ARG KKMSERVER_VERSION=2.1.37.12_02.07.2020
+ARG KKMSERVER_VERSION=2.1.40.34_29.11.2020
 ARG KKMSERVER_STUFF=KkmServer_$KKMSERVER_VERSION.deb
 
 ADD container/ /
@@ -13,6 +13,7 @@ RUN apt-get -qq update \
        libc6-dev \
        libcurl3 \
        libgdiplus \
+       libicu57 \
        liblttng-ust0 \
        libssl1.1 \
        netcat `# For health checks` \
