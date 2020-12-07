@@ -96,7 +96,7 @@ docker rm --force kkmserver
 Удалите образ:
 
 ```bash
-docker image rm alexanderfefelov/kkmserver
+docker image rm quay.io/alexanderfefelov/kkmserver
 ```
 
 :fire: Удалите данные (настройки и логи):
