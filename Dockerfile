@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM ubuntu:20.04
 
 ARG KKMSERVER_VERSION=2.1.40.34_29.11.2020
 ARG KKMSERVER_STUFF=KkmServer_$KKMSERVER_VERSION.deb
@@ -11,9 +11,9 @@ RUN apt-get -qq update \
   && apt-get -qq install --no-install-recommends \
        ca-certificates \
        libc6-dev \
-       libcurl3 \
+       libcurl4 \
        libgdiplus \
-       libicu57 \
+       libicu66 \
        liblttng-ust0 \
        libssl1.1 \
        netcat `# For health checks` \
