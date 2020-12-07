@@ -30,7 +30,7 @@ docker run \
   ...
   --device /dev/ttyACM0:/dev/ttyACM0 \
   ...
-  alexanderfefelov/kkmserver
+  quay.io/alexanderfefelov/kkmserver
 ```
 Узнать имя устройства можно с помощью команды `dmesg`:
 
