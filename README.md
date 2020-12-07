@@ -6,7 +6,15 @@ docker-kkmserver -- это сервер печати чеков/этикеток
 
 ## Как это запустить?
 
-Для запуска контейнера выполните команду:
+Создайте образ (это действие можно пропустить):
+
+```bash
+docker build \
+  --tag quay.io/alexanderfefelov/kkmserver \
+  .
+```
+
+Запустите контейнер:
 
 ```bash
 docker run \
@@ -32,6 +40,7 @@ docker run \
   ...
   quay.io/alexanderfefelov/kkmserver
 ```
+
 Узнать имя устройства можно с помощью команды `dmesg`:
 
 ```
